@@ -1,0 +1,31 @@
+{
+  "name": "origin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "bcrypt": "^5.0.1",
+    "cheerio": "^1.0.0-rc.12",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "iconv-lite": "^0.6.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.5.4",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.19",
+    "redis": "^4.3.0",
+    "uuid": "^9.0.0",
+    "winston": "^3.8.1",
+    "winston-daily-rotate-file": "^4.7.1"
+  }
+}
