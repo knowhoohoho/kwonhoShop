@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const pool = require('../../DB/db');
+const pool = require('../DB/db');
 
 
 
@@ -15,7 +15,6 @@ module.exports = {
       expiresIn : "12d",
       subject : "RT"
     })
-    
     return {
       accessToken,
       refreshToken
@@ -23,13 +22,26 @@ module.exports = {
     
   },
   verify: (token) => {
+    let decoded = null ;
    try{
-     const data =  jwt.verify(token, process.env.JWTKEY);
-    return data
+       decoded =  jwt.verify(token, process.env.JWTKEY);
+    return {
+      success : true,
+      id : decoded.id,
+    }
 
    }catch(e) {
-     console.log(e)
+    return {
+      success : false,
+      message : e.message
+    }
    }
+  },
+  refresh: () => {
+    return jwt.sign({}, process.env.JWTKEY, {
+      algorithm : 'HS256',
+      expiresIn : "14d",
+    })
   },
   refreshVerify : async (token, userid) => {
     let connection;

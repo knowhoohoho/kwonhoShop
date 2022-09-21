@@ -1,9 +1,8 @@
-const pool = require('../../DB/db');
 
 
-let connection;
-let queryM ;
-exports.myShop = async (data) => {
+
+
+const myShop = async (req,res) => {
   try{
     const userId = data;
     console.log('userid', userId)
@@ -19,14 +18,5 @@ exports.myShop = async (data) => {
 }
 
 
-exports.shopRegistration = async (data) => {
-  try {
-    const { name, address,} = data;
-    connection = await pool.getConnection();
-    
 
-
-  }catch (e) {
-    console.log(e);
-  }
-}
+module.exports = myShop;

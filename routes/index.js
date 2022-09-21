@@ -1,14 +1,12 @@
 const router = require('express').Router();
-const userController = require('./controller/userController')
+const userRouter = require('./users');
+const shopRouter = require('./shops');
 
 
 
+router.use('/users', userRouter)
+router.use('/shop', shopRouter)
 
-
-
-router.post('/register', userController.register);
-router.post('/login', userController.login);
- 
 
 
 

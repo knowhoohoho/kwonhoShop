@@ -1,14 +1,12 @@
-const {verify} = require('./jwt')
+const {verify} = require('../auth/jwt');
 
 
 const userConnection = (req,res,next) => {
   const token = req.headers['authorizationto'];
   if(token) {
     const result = verify(token);
-    console.log('data', result.data)
     if(result) {
-      req.id = result.data;
-      req.role = result.role;
+      req.id = result.id;
       next();
     }
   }else {

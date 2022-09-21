@@ -15,7 +15,7 @@ const config = {
     password : process.env.DV_PASSWORD,
     database : process.env.DV_DATABASE,
     connectionLimit : 30
-  }
+  },
 }
 const pool = mysql.createPool(config.local);
 
