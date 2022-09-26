@@ -26,7 +26,15 @@ app.use('/', router)
 
 
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 5000
+
+app.use((err,req,res,next) => {
+  const error = err;
+  error.status(404).json(err.message);
+
+})
+
+
 
 app.listen(PORT, () => {
   console.log(`${PORT}에 온걸 환영!!`);

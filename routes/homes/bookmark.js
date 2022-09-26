@@ -6,8 +6,11 @@ const bookMark = async (req,res) => {
     conection = await pool.getConnection();
     const shopSelet = `selet * from climbing a left join myshop on b  a.id = b.shop.id`
     const shopMain = await conection.query(shopSelet);
-    console.log(shopMain);
 
+    res.json({
+      success : true,
+      shop : shopMain
+    })
 
 
   }catch {
