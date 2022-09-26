@@ -8,7 +8,7 @@ const { profile, modifyProfile} = require('./profile');
 
 
 router.post('/login', login)
-router.post('/register', register)
+router.post('/signup', register)
 router.post('/profile', authToken, profile)
 router.get('/profile', authToken, modifyProfile)
 router.post('/refresh', refresh)

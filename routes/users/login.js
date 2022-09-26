@@ -10,7 +10,7 @@ const login = async (req,res,next) => {
   const userSelect = 'select * from user where nickname =?';
 
   //id 체크
-  const [[userID]] = await connection.query(userSelect, nickname)
+   const [[userID]] = await connection.query(userSelect, nickname)
   console.log(userID)
   if(!userID){return {result :false , message:'존재하지 않는 아이디'}}
 
@@ -24,17 +24,17 @@ const login = async (req,res,next) => {
     })
   };
 
-  const token =  jwt.sign(userID.id);
+  const token = jwt.sign(userID.id);
   if(token) {
-    res.json({results : false , message : '이미 로그인되어있습니다.'})
-  }
+    res.json({results : false , message : '이미 로그인되어있습니다.'});
+  };
 
   const insertToken = 'INSERT INTO usertoken(id,content) value(?,?)'
-  await connection.query(insertToken, [userID.id, token.refreshToken])
+  await connection.query(insertToken, [userID.id, token.refreshToken]);
   await connection.commit();
-  await connection.release()
+  await connection.release();
   return token;
 
 }
 
-module.exports = login
+module.exports = login;

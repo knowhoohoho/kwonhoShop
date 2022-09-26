@@ -3,7 +3,7 @@ const pool = require('../../DB/db');
 
 
 let connection ;
-const register = async (req,res) => {
+const signup = async (req,res) => {
   try{
       console.log(req.body);
       const { nickname, password, email, username, Manager, phone} = req.body;
@@ -41,4 +41,4 @@ const register = async (req,res) => {
 }
 
 
-module.exports = register;
+module.exports = signup;

@@ -19,7 +19,7 @@ if(process.env.NODE_ENV === 'development') {
 }
 
 
-
+// router 
 const router = require('./routes/index.js'); 
 
 app.use('/', router)
