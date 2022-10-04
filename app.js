@@ -2,10 +2,16 @@ const express =require('express');
 const cors = require('cors')
 const morgan = require('morgan');
 const app = express();
-
+const {sequelize} = require('./models');
 
 
 require('dotenv').config();
+
+sequelize.sync({force : false})
+      .then(() => {
+        console.log('db 연결됨')
+      })
+
 
 app.use(cors());
 app.use(express.json());
