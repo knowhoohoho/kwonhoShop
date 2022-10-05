@@ -1,19 +1,17 @@
-const pool = require('../../DB/db');
-
+const db = require('../../models')
 
 
 let conection; 
 const bookMark = async (req,res) => {
   try {
-    conection = await pool.getConnection();
-    const user = req.id ;
-    conection.query('')
+    const user = await db.sequelize.create({
+      name : req.body.name
+    })
+    res.status(200).json('success')
 
 
-
-
-  }catch {
- 
+  }catch (e){
+    console.log(e)
   }finally {
     if(conection) {
       conection.release();
