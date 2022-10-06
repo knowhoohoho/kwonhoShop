@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "devnode",
-    "password": "rnjsgh12",
-    "database": "testdb",
-    "host": "52.79.255.89",
+    "username": "",
+    "password": "",
+    "database": "",
+    "host": "",
     "dialect": "mysql"
   },
   "local": {
