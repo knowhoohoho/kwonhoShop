@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const pool = require('../DB/db');
-
+const db = require('../models');
 
 
 module.exports = {
@@ -44,16 +44,12 @@ module.exports = {
     })
   },
   refreshVerify : async (token, userid) => {
-    let connection;
     try {
-      
-      connection = await pool.getConnection();
-     const [results] = await connection.query('SELECT * FROM usertoken where id =? and content =?', [userid, token]);
-     console.log(results)
+    const results = await db.token.findOne({
+      where :{id : userid, content : token},
+    })
      if(!results) {return {results : false, message :'올바른 유저가 아닙니다.'}}
      return {success :true}; 
-
-
     }catch (e) {
       console.log(e)
     }finally {

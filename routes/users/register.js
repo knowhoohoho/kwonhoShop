@@ -1,5 +1,5 @@
 const pool = require('../../DB/db');
-
+const db =require('../../models');
 
 
 let connection ;

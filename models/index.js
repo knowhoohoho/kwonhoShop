@@ -36,5 +36,6 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 db.user = require('./user')(sequelize, Sequelize)
 db.shop = require('./shop')(sequelize, Sequelize)
+db.token = require('./usertoken') (sequelize, Sequelize)
 
 module.exports = db;

@@ -1,14 +1,10 @@
-
 const db = require('../../models')
 
-let conection ;
 const mainHome = async (req,res) => {
  try{
-   console.log(req.body)
-  const user = await db.shop.create({
-    name : req.body.name
+  const shops = await db.shop.findAll({
   })
-  res.status(200).json('success')
+  return res.status(200).json({ success : true, data : shops})
 
  }catch(e) {
    console.log(e)

@@ -2,11 +2,12 @@ const db = require('../../models')
 const bcrypt = require('bcrypt');
 const jwt = require('../../auth/jwt');
 
+//login
 const login = async (req,res,next) => {
   const { nickname, password} = req.body;
 
    //id 체크
-  const user = db.user.findOne({
+  const user = await db.user.findOne({
     where : {nickname : nickname}
    })
   if(!user){return {result :false , message:'존재하지 않는 아이디'}}

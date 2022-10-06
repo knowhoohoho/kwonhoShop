@@ -1,15 +1,14 @@
 const db = require('../../models')
 
 
-let conection; 
+
+//즐겨찾기
+
 const bookMark = async (req,res) => {
   try {
-    const user = await db.sequelize.create({
-      name : req.body.name
-    })
-    res.status(200).json('success')
 
 
+    
   }catch (e){
     console.log(e)
   }finally {
