@@ -20,7 +20,6 @@ const systemLogFileTransport = new DailyRotateFile({
 });
 
 
-
 const errorStackFormat = winston.format(info => {
   if (info instanceof Error) {
     return Object.assign({}, info, {

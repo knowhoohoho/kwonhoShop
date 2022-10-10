@@ -12,5 +12,6 @@ module.exports = {
     maxFiles: Number(process.env.LOG_DEBUG_MAX_FILES),
     writeOnFile: process.env.LOG_DEBUG_WRITE_ON_FILE === 'true',
   },
-  
+
+
 };

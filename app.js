@@ -2,10 +2,10 @@ const express =require('express');
 const cors = require('cors')
 const morgan = require('morgan');
 const app = express();
+require('dotenv').config();
+
 const {sequelize} = require('./models');
 const logger = require('./logging/winston').logger;
-
-require('dotenv').config();
 
 sequelize.sync({force : false})
       .then(() => {
