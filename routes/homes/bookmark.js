@@ -7,7 +7,6 @@ const db = require('../../models')
 const bookMark = async (req,res) => {
   try {
 
-
     
   }catch (e){
     console.log(e)
@@ -22,3 +21,6 @@ const bookMark = async (req,res) => {
 
 
 module.exports = bookMark;
+
+
+

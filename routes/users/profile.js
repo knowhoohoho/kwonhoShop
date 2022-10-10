@@ -1,14 +1,33 @@
-const router = require('express').Router();
-
+const db = require('../../models');
 
 const profile = (req,res) => {
-  console.log(req.body);
-}
+  try{
+
+  }catch(e) {
+    console.log('errror :::: ', e)
+  }
+ }
 
 
 
-const modifyProfile = (req,res) => {
-  console.log(req.body);
+const modifyProfile = async (req,res) => {
+  try{
+    const {id} = req;
+    const user = await db.user.filndOne({
+      where : {id : id}
+    })
+    if(user) {
+      
+    }
+
+
+
+
+
+
+  }catch(e) {
+    console.log('eeeee', e)
+  }
 }
 
 

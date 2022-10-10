@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const pool = require('../DB/db');
 const db = require('../models');
 
 

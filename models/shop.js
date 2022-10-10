@@ -1,5 +1,10 @@
 module.exports = (sequelize, DataType) => {
     return sequelize.define('Shop', {
+      id :{
+        type: DataType.STRING,
+        primaryKey: true,
+        comment : "고유 이름"
+      },
        name : {
          type : DataType.STRING,
          allNull :false,

@@ -1,11 +1,7 @@
 module.exports = (sequelize, DataType) => {
   return sequelize.define('User', {
-    id :{
-      type :DataType.INTEGER,
-      primaryKey: true,
-      comment : '고유번호'
-    },
-     name : {
+   
+     nickname : {
        type : DataType.STRING,
        allNull :false,
        comment  : "이름"

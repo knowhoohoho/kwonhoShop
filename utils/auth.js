@@ -5,9 +5,10 @@ const authToken = (req,res,next) => {
   const token = req.headers['authorizationto'];
   if(token) {
     const result = verify(token);
-    console.log(result)
+    console.log('results' ,result)
+    console.log('resultsid :::', result.id)
     if(result.success === true) {
-      console.log('sss')
+      console.log('success')
       req.id = result.id;
       next();
     }else {
@@ -20,3 +21,6 @@ const authToken = (req,res,next) => {
 }
 
   module.exports = authToken;
+
+
+

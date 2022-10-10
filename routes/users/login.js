@@ -4,6 +4,7 @@ const jwt = require('../../auth/jwt');
 
 //login
 const login = async (req,res,next) => {
+  console.log(req.body);
   const { nickname, password} = req.body;
 
    //id 체크
@@ -20,13 +21,12 @@ const login = async (req,res,next) => {
       message : "비밀번호 일치 하지 않습니다."
     })
   };
+  const token = jwt.sign(user.id)
 
-  const insertToken = 'INSERT INTO usertoken(id,content) value(?,?)'
-  await connection.query(insertToken, [user.id, token.refreshToken]);
-  await connection.commit();
-  await connection.release();
-  return token;
-
+  return res.json({
+    success : true,
+    data :  token
+  })
 }
 
 module.exports = login;
