@@ -4,10 +4,4 @@ node_modules
 
 
 /** 로그 파일 */
-.logs/*
-logs/.1a5f68bd9c51bd05d5a154b9bb66fa91b4fd70e9-audit.json
-logs/.b3d0d64d08cc87a5cea01f2c3568de30584916ea-audit.json
-logs/2022-10-12.exception.log
-logs/2022-10-12.log
-logs/error/.6965cfc8cac859e0e936d08416b9215bd237f65e-audit.json
-logs/error/2022-10-12.error.log
+logs
