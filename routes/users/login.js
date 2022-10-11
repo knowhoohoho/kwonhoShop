@@ -4,7 +4,7 @@ const jwt = require('../../auth/jwt');
 
 //login
 const login = async (req,res,next) => {
-  console.log(req.body);
+  try{
   const { nickname, password} = req.body;
 
    //id 체크
@@ -14,19 +14,30 @@ const login = async (req,res,next) => {
   if(!user){return {result :false , message:'존재하지 않는 아이디'}}
 
   //pw 체크
-  const userCheck =  bcrypt.compareSync(password, user.password);
+  const userCheck = await bcrypt.compareSync(password, user.password);
   if(!userCheck) {
     res.json({
       results : false,
       message : "비밀번호 일치 하지 않습니다."
     })
   };
+  
   const token = jwt.sign(user.id)
 
+  //db 저장
+  const data = {
+    id: user.id,
+    refreshToken : token.refreshToken
+  }
+ const tokenIn = await db.token.create(data)
   return res.json({
     success : true,
     data :  token
   })
+  }catch(e) { 
+    console.log(e)
+  }
+  
 }
 
 module.exports = login;

@@ -5,8 +5,6 @@ const authToken = (req,res,next) => {
   const token = req.headers['authorizationto'];
   if(token) {
     const result = verify(token);
-    console.log('results' ,result)
-    console.log('resultsid :::', result.id)
     if(result.success === true) {
       console.log('success')
       req.id = result.id;

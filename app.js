@@ -5,7 +5,7 @@ const app = express();
 require('dotenv').config();
 
 const {sequelize} = require('./models');
-const logger = require('./logging/winston').logger;
+const logger = require('./config/logger').logger;
 
 sequelize.sync({force : false})
       .then(() => {
@@ -16,7 +16,6 @@ sequelize.sync({force : false})
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
-logger.info('ss')
 
 if(process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
@@ -36,6 +35,7 @@ const PORT = process.env.LOCAL_HOST || 5000
 
 app.use((err,req,res,next) => {
   const error = err;
+  logger.error(error.message);
   error.status(404).json(err.message);
 
 })

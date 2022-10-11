@@ -21,11 +21,12 @@ const signup = async (req,res) => {
         email
       }
       //db에 저장
-      const userJoin = db.user.create(newUser).then(result => {
+      const userJoin = await db.user.create(newUser).then(result => {
         console.log('회원가입 성공')
       }).catch(e => {
         console.log(e)
-      })
+      }) 
+      
       return res.json({
         success : true,
         message : "회원가입 완료"
