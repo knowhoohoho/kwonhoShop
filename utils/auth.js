@@ -4,6 +4,7 @@ const {verify} = require('../auth/jwt');
 const authToken = (req,res,next) => {
   const token = req.headers['authorizationto'];
   if(token) {
+    console.log('token')
     const result = verify(token);
     if(result.success === true) {
       console.log('success')

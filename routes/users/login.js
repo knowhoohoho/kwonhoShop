@@ -6,12 +6,13 @@ const jwt = require('../../auth/jwt');
 const login = async (req,res,next) => {
   try{
   const { nickname, password} = req.body;
+  console.log(req.body)
 
    //id 체크
   const user = await db.user.findOne({
     where : {nickname : nickname}
    })
-  if(!user){return {result :false , message:'존재하지 않는 아이디'}}
+  if(!user){return res.json({result :false , message:'존재하지 않는 아이디'})}
 
   //pw 체크
   const userCheck = await bcrypt.compareSync(password, user.password);

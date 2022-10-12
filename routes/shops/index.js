@@ -6,6 +6,7 @@ const authToken = require('../../utils/auth');
 
 
 router.get('/myshop', authToken, myshop);
+// router.post('/myshop', authToken, myshop);
 router.get('/shopRegistration', authToken, shopRegistration);
 
 
