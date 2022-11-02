@@ -6,7 +6,7 @@ const Sequelize = require('sequelize');
 const process = require('process');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '/../config/config.json')[env];
+const config = require(__dirname + '/../config/config.js')[env];
 const db = {};
 
 let sequelize;
@@ -15,6 +15,12 @@ if (config.use_env_variable) {
 } else {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
+
+
+
+db.User = require('./user')(sequelize, Sequelize)
+db.Shop = require('./shop')(sequelize, Sequelize)
+
 
 fs
   .readdirSync(__dirname)
@@ -34,8 +40,5 @@ Object.keys(db).forEach(modelName => {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
-db.user = require('./user')(sequelize, Sequelize)
-db.shop = require('./shop')(sequelize, Sequelize)
-db.token = require('./usertoken') (sequelize, Sequelize)
 
 module.exports = db;

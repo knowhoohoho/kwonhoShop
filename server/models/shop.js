@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataType) => {
-    return sequelize.define('Shop', {
+    const Shop = sequelize.define('Shop', {
       id :{
         type: DataType.STRING,
         primaryKey: true,
@@ -35,4 +35,6 @@ module.exports = (sequelize, DataType) => {
       charset :'utf8',
       collate: 'utf8_general_ci',
     })
+
+    return Shop
 }

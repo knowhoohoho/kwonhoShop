@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataType) => {
-  return sequelize.define('User', {
+  const User = sequelize.define('User', {
    
      nickname : {
        type : DataType.STRING,
@@ -18,4 +18,5 @@ module.exports = (sequelize, DataType) => {
     charset :'utf8', 
     collate: 'utf8_general_ci', 
   })
+  return User
 }
