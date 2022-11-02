@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "",
-    "password": "",
-    "database": "",
-    "host": "",
+    "username": "devadmin",
+    "password": "rnjsgh12",
+    "database": "Climbing",
+    "host": "devadmin.ch41aerfzwro.ap-northeast-2.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "local": {

@@ -23,16 +23,13 @@ if(process.env.NODE_ENV === 'development') {
   app.use(morgan('tiny'));
 }
 
-
 // router 
 const router = require('./routes/index.js'); 
 
 app.use('/', router)
 
 
-
-const PORT = process.env.LOCAL_HOST || 5000
-
+const PORT = process.env.LOCAL_HOST || 7000
 app.use((err,req,res,next) => {
   const error = err;
   logger.error(error.message);
